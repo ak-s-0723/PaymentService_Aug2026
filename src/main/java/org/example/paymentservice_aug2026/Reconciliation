@@ -1,0 +1,10 @@
+2 ways of Reconciliation -> Refund Purpose
+
+1. Cron Job at Payment Service
+Look for all entries of last 24 hours in PaymentServive DB
+Payment Ids whose status = Pending and ask PG for status and if there is discrepancy
+then we will do refund
+
+2. PG will be sending a summary of all the payments happened over a week with status
+Then Payment service will compare status of each payment with status in its DB
+and if there is discrepancy, refund can be done in that case.
